@@ -1,6 +1,6 @@
 import pytest
 from flask import Flask
-from error_handling import handle_error, MyCustomErrorType, AnotherCustomErrorType
+from app.error_handling import handle_error, MyCustomErrorType, AnotherCustomErrorType
 
 
 @pytest.fixture

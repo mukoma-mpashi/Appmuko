@@ -10,4 +10,5 @@ flask-restx
 Flask-Caching
 gunicorn
 applicationinsights
+uwsgi
 

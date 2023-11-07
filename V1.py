@@ -1,8 +1,8 @@
 from flask import request
 from flask_restx import Resource, fields
 
-from application import api, root_ref
-from data_handler import is_valid_sensor_data, process_sensor_data
+from app.application import api, root_ref
+from app.data_handler import is_valid_sensor_data, process_sensor_data
 
 # Define data models
 sensor_data_model = api.model('SensorData', {

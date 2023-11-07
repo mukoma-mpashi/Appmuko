@@ -1,17 +1,18 @@
-import firebase_admin
 from firebase_admin import credentials, db
 from flask_caching import Cache
 from flask_restx import Api
 from flask import Flask, request
+import firebase_admin
 import time
 from azure_monitor import log_custom_event, log_operation_duration, log_exception
 from data_handler import is_valid_sensor_data, process_sensor_data
 from error_handling import handle_error
+import gunicorn_config as config
 
 app = Flask(__name__)
 
 # Initialize Firebase
-cred = credentials.Certificate("secrets.json")
+cred = credentials.Certificate("/home/muko/Pictures/Appmuko/app/secrets.json")
 firebase_admin.initialize_app(cred, {
     'databaseURL': "https://arcus-c9ae1-default-rtdb.firebaseio.com/"
 })

@@ -1,7 +1,7 @@
 import requests
 
 # Define the server URL
-server_url = "http://mukoapi.azurewebsites.net"  # Replace with your server's URL
+server_url = "https://mukoapi.azurewebsites.net"  # Replace with your server's URL
 
 # Define the endpoints
 update_data_endpoint = "/update_data"
