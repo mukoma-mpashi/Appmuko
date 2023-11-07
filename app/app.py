@@ -7,7 +7,7 @@ import time
 from azure_monitor import log_custom_event, log_operation_duration, log_exception
 from data_handler import is_valid_sensor_data, process_sensor_data
 from error_handling import handle_error
-import gunicorn_config as config
+#import gunicorn_config as config
 
 app = Flask(__name__)
 
@@ -20,13 +20,13 @@ firebase_admin.initialize_app(cred, {
 root_ref = db.reference('/')
 
 # Configure Flask-Caching
-cache = Cache(app, config={'CACHE_TYPE': 'simple'})
+#cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
 api = Api(app, version='1.0', title='MukoApi', description='Arcus API', doc='/apidocs/')
 
 app.errorhandler(Exception)(handle_error)
 
-@cache.cached(timeout=300)  # Cache the result for 300 seconds
+#@cache.cached(timeout=300)  # Cache the result for 300 seconds
 @app.route('/update_data', methods=['POST'])
 def update_data():
     try:
@@ -51,7 +51,7 @@ def update_data():
         log_exception()
         raise e
 
-@cache.cached(timeout=300)  # Cache the result for 300 seconds
+#@cache.cached(timeout=300)  # Cache the result for 300 seconds
 @app.route('/control_pump', methods=['GET'])
 def control_pump():
     try:
