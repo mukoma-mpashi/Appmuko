@@ -55,6 +55,7 @@ def create_app():
     @app.route('/control_pump', methods=['GET'])
     def control_pump():
         try:
+            
             pump_status = root_ref.child("sensor1").child("pump_status").get()
 
             if pump_status is not None:
