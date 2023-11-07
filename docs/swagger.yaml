@@ -1,0 +1,44 @@
+swagger: '2.0'
+info:
+  title: MukoApi
+  description: API for managing IoT sensor data and pump control
+  version: 1.0.0
+basePath: /
+schemes:
+  - http
+paths:
+  /update_data:
+    post:
+      summary: Update Sensor Data
+      description: Handle the sensor data update endpoint. This function receives sensor data from the IoT hub, validates it, and updates the Firebase Realtime Database.
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        - name: data
+          in: formData
+          type: string
+          required: true
+          description: The sensor data to update (e.g., '25.5,60.0').
+      responses:
+        200:
+          description: Sensor data successfully updated.
+        400:
+          description: Invalid sensor data format.
+        500:
+          description: An error occurred.
+
+  /control_pump:
+    get:
+      summary: Control Pump Status
+      description: Handle the pump control endpoint. This function retrieves the pump status from the Firebase Realtime Database and responds with the current status.
+      responses:
+        200:
+          description: Successfully retrieved pump status.
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: The status message ('Pump turned on' or 'Pump turned off').
+        400:
+          description: An error occurred or invalid request.
