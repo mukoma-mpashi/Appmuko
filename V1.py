@@ -1,7 +1,7 @@
 from flask import request
 from flask_restx import Resource, fields
 
-from app_factory import api, root_ref
+from application import api, root_ref
 from data_handler import is_valid_sensor_data, process_sensor_data
 
 # Define data models
