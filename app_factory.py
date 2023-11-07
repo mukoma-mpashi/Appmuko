@@ -12,7 +12,7 @@ def create_app():
     app = Flask(__name__)
 
     # Initialize Firebase
-    cred = credentials.Certificate("/home/muko/Desktop/programming/python/Iot_project/secrets.json")
+    cred = credentials.Certificate("secrets.json")
     firebase_admin.initialize_app(cred, {
         'databaseURL': "https://arcus-c9ae1-default-rtdb.firebaseio.com/"
     })
